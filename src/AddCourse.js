@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "./global";
 
 export default function AddCourse() {
 
@@ -33,8 +34,8 @@ export default function AddCourse() {
 
     onSubmit: async (values) => {
       try {
-        let users = await axios.post("https://qr-solution-backend.vercel.app/course/post", values);
-        alert(" New User has created Done");
+        let users = await axios.post(`${API_URL}/course/post`, values);
+        alert(" New Course has created Done");
         navigate("/portal/course");
       } catch (err) {
         alert(err.response.data)

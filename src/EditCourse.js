@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 import { useFormik } from "formik";
 import axios from "axios";
 import * as yup from "yup";
+import { API_URL } from './global';
 
 export function EditCourse() {
   const { id } = useParams();
@@ -18,7 +19,7 @@ export function EditCourse() {
 
 let loadUser = async () => {
     try{
-        let product = await axios.get(`https://qr-solution-backend.vercel.app/course/getbyid/${id}`)
+        let product = await axios.get(`${API_URL}/course/getbyid/${id}`)
 
    setCourse(product.data.courses)
     
@@ -61,7 +62,7 @@ function EditForm({updateCourse}){
   
       onSubmit :async (values) => {
        try{
-        let users = await axios.put(`https://qr-solution-backend.vercel.app/course/updatebyid/${updateCourse._id}`, values);
+        let users = await axios.put(`${API_URL}/course/updatebyid/${updateCourse._id}`, values);
         alert(" Data has been updated Done");
         navigate("/portal/course");
        }catch (err){

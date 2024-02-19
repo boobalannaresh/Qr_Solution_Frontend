@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Button from '@mui/material/Button';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import axios from "axios";
+import { API_URL } from "./global";
 
 export default function CourseDetail() {
     const { id } = useParams();
@@ -15,7 +16,7 @@ export default function CourseDetail() {
     
     let loadUser = async () => {
         try{
-            let product = await axios.get(`https://qr-solution-backend.vercel.app/course/getbyid/${id}`)
+            let product = await axios.get(`${API_URL}/course/getbyid/${id}`)
        setCourse(product.data.courses)
         
         }catch(error){

@@ -70,3 +70,12 @@ justify-content: space-between;
   margin: 100px;
 }
 
+.user-table{
+  max-width:700px;
+  margin:20px auto;
+}
+
+.list{
+  max-width:200px;
+  margin:50px auto;
+}

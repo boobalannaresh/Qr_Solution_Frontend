@@ -15,6 +15,7 @@ export default function Topbar({ mode, setMode }) {
     Admin: "0",
     Student: "1"
 }
+
 const roleId = localStorage.getItem("roleId")
 
   const navigate = useNavigate();
@@ -38,7 +39,15 @@ const roleId = localStorage.getItem("roleId")
           {
             roleId === ROLE_ID.Admin ? 
           <Button color="inherit" onClick={() => navigate("/portal/addcourse")}>
-            Add-Course
+            Add
+          </Button> : null 
+          
+          }
+
+          {
+            roleId === ROLE_ID.Admin ? 
+          <Button color="inherit" onClick={() => navigate("/portal/users")}>
+            Schedule
           </Button> : null 
           
           }
@@ -49,7 +58,7 @@ const roleId = localStorage.getItem("roleId")
             color="inherit"
             onClick={() => setMode(mode === "light" ? "dark" : "light")}
           >
-            {mode === "light" ? "dark" : "light"} Mode
+            {mode === "light" ? "dark" : "light"}
           </Button>
 
           <Button

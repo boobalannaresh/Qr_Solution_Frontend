@@ -7,6 +7,7 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios";
+import { API_URL } from './global';
 
 export default function Login() {
 
@@ -27,11 +28,11 @@ export default function Login() {
     
         onSubmit: async (values) => {
           try{
-            let res = await axios.post("https://qr-solution-backend.vercel.app/user/login", values)
+            let res = await axios.post(`${API_URL}/user/login`, values)
             
            localStorage.setItem("studentToken", res.data.token)
            localStorage.setItem("roleId", res.data.roleId)
-           localStorage.setItem("email", res.data.email)
+           localStorage.setItem("id", res.data.email)
 
            alert("Successfully Login")
            navigate("/portal/course")

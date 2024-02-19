@@ -7,6 +7,7 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios";
+import { API_URL } from './global';
 
 
 export default function Register() {
@@ -30,7 +31,7 @@ export default function Register() {
 
     onSubmit: async (values) => {
       try{
-        let res = await axios.post("https://qr-solution-backend.vercel.app/user/register", values)
+        let res = await axios.post(`${API_URL}/user/register`, values)
         alert("User Register Successfully")
         navigate("/")
       }catch(error){
